@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Dashboard } from "@/components/Dashboard";
 import { KnowledgeBank } from "@/components/KnowledgeBank";
+import { GoalsManager } from "@/components/GoalsManager";
 import { SearchBar } from "@/components/SearchBar";
 import { Navigation } from "@/components/Navigation";
+import { Toaster } from "@/components/ui/toaster";
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -40,23 +42,7 @@ const Index = () => {
           </div>
         );
       case "goals":
-        return (
-          <div className="space-y-6 animate-in fade-in duration-700">
-            <div className="space-y-2">
-              <h1 className="text-3xl font-light tracking-tight text-foreground">
-                目標
-              </h1>
-              <p className="text-muted-foreground font-light">
-                Track and manage your learning objectives
-              </p>
-            </div>
-            <div className="flex items-center justify-center h-64 border border-dashed border-border rounded-lg bg-muted/20">
-              <p className="text-muted-foreground font-light">
-                Goals management coming soon...
-              </p>
-            </div>
-          </div>
-        );
+        return <GoalsManager />;
       default:
         return <Dashboard />;
     }
@@ -68,6 +54,7 @@ const Index = () => {
       <main className="container mx-auto px-6 py-8 max-w-7xl">
         {renderContent()}
       </main>
+      <Toaster />
     </div>
   );
 };
