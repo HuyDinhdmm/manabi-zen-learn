@@ -45,12 +45,29 @@ const resources = [
     icon: BookOpen,
     description: "Principles of designing microservices systems",
   },
+  {
+    title: "Linear Regression in Practice",
+    type: "project",
+    tags: ["AI", "ML", "theory-to-practice"],
+    icon: GitBranch,
+    description: "A small Python project demonstrating regression model visualization.",
+    video: "https://youtu.be/sample-regression-demo",
+  },
+  {
+    title: "How Gradient Descent Works (Explainer Video)",
+    type: "video",
+    tags: ["AI", "math", "learning"],
+    icon: Video,
+    description: "A 3-minute animation explaining how gradient descent optimizes models.",
+    video: "https://youtu.be/sample-gradient-descent",
+  },
 ];
 
 const typeColors: Record<string, string> = {
   theory: "bg-primary/10 text-primary border-primary/20",
   "case-study": "bg-success/10 text-success border-success/20",
   project: "bg-accent text-accent-foreground border-accent",
+  video: "bg-secondary/50 text-foreground border-secondary",
 };
 
 export const KnowledgeBank = () => {
@@ -68,10 +85,17 @@ export const KnowledgeBank = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {resources.map((resource, index) => {
           const Icon = resource.icon;
+          const handleClick = () => {
+            if ('video' in resource && resource.video) {
+              window.open(resource.video, '_blank');
+            }
+          };
+          
           return (
             <Card
               key={index}
               className="p-5 border-border bg-card hover:shadow-md transition-all duration-300 group cursor-pointer"
+              onClick={handleClick}
             >
               <div className="space-y-4">
                 <div className="flex items-start justify-between">
