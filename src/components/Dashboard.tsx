@@ -6,9 +6,10 @@ import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { Goal } from "@/types/goal";
 import { useMemo } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Tooltip } from "recharts";
+import { mockGoals } from "@/data/mockData";
 
 export const Dashboard = () => {
-  const [goals] = useLocalStorage<Goal[]>("manabi-goals", []);
+  const [goals] = useLocalStorage<Goal[]>("manabi-goals", mockGoals, true);
 
   const stats = useMemo(() => {
     const totalHours = goals.reduce((acc, goal) => acc + goal.currentHours, 0);
@@ -59,7 +60,7 @@ export const Dashboard = () => {
   });
 
   return (
-    <div className="space-y-8 animate-in fade-in duration-700">
+    <div className="space-y-8 animate-fade-in">
       <div className="space-y-2">
         <h1 className="text-3xl font-light tracking-tight text-foreground">
           おかえりなさい
@@ -70,9 +71,9 @@ export const Dashboard = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <Card className="p-6 border-border bg-card space-y-3">
+        <Card className="p-6 border-border bg-card space-y-3 hover-scale transition-all duration-300">
           <div className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-lg bg-secondary flex items-center justify-center">
+            <div className="h-10 w-10 rounded-lg bg-secondary flex items-center justify-center animate-scale-in">
               <Calendar className="h-5 w-5 text-primary" />
             </div>
             <div>
@@ -82,9 +83,9 @@ export const Dashboard = () => {
           </div>
         </Card>
 
-        <Card className="p-6 border-border bg-card space-y-3">
+        <Card className="p-6 border-border bg-card space-y-3 hover-scale transition-all duration-300" style={{ animationDelay: "100ms" }}>
           <div className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-lg bg-secondary flex items-center justify-center">
+            <div className="h-10 w-10 rounded-lg bg-secondary flex items-center justify-center animate-scale-in" style={{ animationDelay: "100ms" }}>
               <Target className="h-5 w-5 text-primary" />
             </div>
             <div>
@@ -94,9 +95,9 @@ export const Dashboard = () => {
           </div>
         </Card>
 
-        <Card className="p-6 border-border bg-card space-y-3">
+        <Card className="p-6 border-border bg-card space-y-3 hover-scale transition-all duration-300" style={{ animationDelay: "200ms" }}>
           <div className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-lg bg-secondary flex items-center justify-center">
+            <div className="h-10 w-10 rounded-lg bg-secondary flex items-center justify-center animate-scale-in" style={{ animationDelay: "200ms" }}>
               <TrendingUp className="h-5 w-5 text-primary" />
             </div>
             <div>

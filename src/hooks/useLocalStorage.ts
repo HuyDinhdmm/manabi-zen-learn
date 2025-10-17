@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 
-export function useLocalStorage<T>(key: string, initialValue: T) {
+export function useLocalStorage<T>(key: string, initialValue: T, useMockData = false) {
   const [storedValue, setStoredValue] = useState<T>(() => {
     try {
       const item = window.localStorage.getItem(key);
+      if (!item && useMockData) {
+        return initialValue;
+      }
       return item ? JSON.parse(item) : initialValue;
     } catch (error) {
       console.error(error);

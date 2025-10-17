@@ -1,74 +1,23 @@
 import React from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { BookOpen, Video, FileText, GitBranch, ExternalLink } from "lucide-react";
+import { BookOpen, Video, FileText, Code, ExternalLink } from "lucide-react";
+import { mockResources } from "@/data/mockData";
 
-const resources = [
-  {
-    title: "Introduction to Machine Learning",
-    type: "theory",
-    tags: ["AI", "ML", "Fundamentals"],
-    icon: BookOpen,
-    description: "Comprehensive overview of ML concepts and algorithms",
-  },
-  {
-    title: "React Hooks Deep Dive",
-    type: "case-study",
-    tags: ["React", "JavaScript", "Hooks"],
-    icon: Video,
-    description: "Real-world examples of React Hooks implementation",
-  },
-  {
-    title: "Building a REST API",
-    type: "project",
-    tags: ["Backend", "API", "Node.js"],
-    icon: GitBranch,
-    description: "Step-by-step guide to creating scalable APIs",
-  },
-  {
-    title: "Design Patterns in TypeScript",
-    type: "theory",
-    tags: ["TypeScript", "Patterns", "Architecture"],
-    icon: FileText,
-    description: "Essential design patterns for modern development",
-  },
-  {
-    title: "Data Visualization with D3",
-    type: "case-study",
-    tags: ["D3", "Visualization", "Frontend"],
-    icon: Video,
-    description: "Creating interactive charts and graphs",
-  },
-  {
-    title: "Microservices Architecture",
-    type: "theory",
-    tags: ["Architecture", "Distributed Systems"],
-    icon: BookOpen,
-    description: "Principles of designing microservices systems",
-  },
-  {
-    title: "Linear Regression in Practice",
-    type: "project",
-    tags: ["AI", "ML", "theory-to-practice"],
-    icon: GitBranch,
-    description: "A small Python project demonstrating regression model visualization.",
-    video: "https://youtu.be/sample-regression-demo",
-  },
-  {
-    title: "How Gradient Descent Works (Explainer Video)",
-    type: "video",
-    tags: ["AI", "math", "learning"],
-    icon: Video,
-    description: "A 3-minute animation explaining how gradient descent optimizes models.",
-    video: "https://youtu.be/sample-gradient-descent",
-  },
-];
+const resources = mockResources;
 
 const typeColors: Record<string, string> = {
   theory: "bg-primary/10 text-primary border-primary/20",
   "case-study": "bg-success/10 text-success border-success/20",
   project: "bg-accent text-accent-foreground border-accent",
   video: "bg-secondary/50 text-foreground border-secondary",
+};
+
+const typeIcons: Record<string, React.ReactNode> = {
+  theory: <BookOpen className="h-5 w-5 text-primary" />,
+  "case-study": <FileText className="h-5 w-5 text-success" />,
+  project: <Code className="h-5 w-5 text-accent-foreground" />,
+  video: <Video className="h-5 w-5 text-foreground" />,
 };
 
 export const KnowledgeBank = () => {
@@ -87,7 +36,7 @@ export const KnowledgeBank = () => {
   });
 
   return (
-    <div className="space-y-6 animate-in fade-in duration-700">
+    <div className="space-y-6 animate-fade-in">
       <div className="space-y-4">
         <div className="space-y-2">
           <h1 className="text-3xl font-light tracking-tight text-foreground">
@@ -133,7 +82,6 @@ export const KnowledgeBank = () => {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredResources.map((resource, index) => {
-          const Icon = resource.icon;
           const handleClick = () => {
             if ('video' in resource && resource.video) {
               window.open(resource.video, '_blank');
@@ -142,43 +90,50 @@ export const KnowledgeBank = () => {
           
           return (
             <Card
-              key={index}
-              className="p-5 border-border bg-card hover:shadow-md transition-all duration-300 group cursor-pointer"
+              key={resource.id}
+              className="overflow-hidden border-border bg-card hover:shadow-lg transition-all duration-300 cursor-pointer hover-scale group animate-fade-in"
+              style={{ animationDelay: `${index * 50}ms` }}
               onClick={handleClick}
             >
-              <div className="space-y-4">
-                <div className="flex items-start justify-between">
-                  <div className="h-10 w-10 rounded-lg bg-secondary flex items-center justify-center group-hover:bg-primary/10 transition-colors">
-                    <Icon className="h-5 w-5 text-primary" />
+              {'image' in resource && resource.image && (
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={resource.image}
+                    alt={resource.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                  <div className={`absolute top-3 right-3 h-10 w-10 rounded-lg ${typeColors[resource.type]} flex items-center justify-center shadow-lg backdrop-blur-sm`}>
+                    {typeIcons[resource.type]}
                   </div>
-                  <ExternalLink className="h-4 w-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-
-                <div className="space-y-2">
+              )}
+              <div className="p-5">
+                <div className="space-y-3">
                   <h3 className="font-light text-base group-hover:text-primary transition-colors">
                     {resource.title}
                   </h3>
                   <p className="text-sm text-muted-foreground font-light line-clamp-2">
                     {resource.description}
                   </p>
-                </div>
 
-                <div className="flex flex-wrap gap-2">
-                  <Badge
-                    variant="outline"
-                    className={`${typeColors[resource.type]} font-light text-xs`}
-                  >
-                    {resource.type}
-                  </Badge>
-                  {resource.tags.slice(0, 2).map((tag, idx) => (
+                  <div className="flex flex-wrap gap-2">
                     <Badge
-                      key={idx}
                       variant="outline"
-                      className="border-border text-muted-foreground font-light text-xs"
+                      className={`${typeColors[resource.type]} font-light text-xs`}
                     >
-                      {tag}
+                      {resource.type}
                     </Badge>
-                  ))}
+                    {resource.tags.slice(0, 2).map((tag, idx) => (
+                      <Badge
+                        key={idx}
+                        variant="outline"
+                        className="border-border text-muted-foreground font-light text-xs"
+                      >
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
                 </div>
               </div>
             </Card>

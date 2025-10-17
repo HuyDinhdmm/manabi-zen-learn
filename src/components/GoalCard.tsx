@@ -22,7 +22,7 @@ export const GoalCard = ({
   category,
 }: GoalCardProps) => {
   return (
-    <Card className="p-5 border-border bg-card hover:shadow-md transition-all duration-300 group cursor-pointer">
+    <Card className="p-5 border-border bg-card hover:shadow-md transition-all duration-300 group cursor-pointer hover-scale animate-fade-in">
       <div className="space-y-3">
         <div className="flex items-start justify-between gap-4">
           <h3 className="font-light text-base group-hover:text-primary transition-colors">
