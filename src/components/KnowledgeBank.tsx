@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { BookOpen, Video, FileText, Code, ExternalLink } from "lucide-react";
@@ -21,6 +22,7 @@ const typeIcons: Record<string, React.ReactNode> = {
 };
 
 export const KnowledgeBank = () => {
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = React.useState("");
   const [selectedType, setSelectedType] = React.useState<string | null>(null);
 
@@ -83,9 +85,7 @@ export const KnowledgeBank = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredResources.map((resource, index) => {
           const handleClick = () => {
-            if ('video' in resource && resource.video) {
-              window.open(resource.video, '_blank');
-            }
+            navigate(`/resource/${resource.id}`);
           };
           
           return (
