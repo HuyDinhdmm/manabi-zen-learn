@@ -1,9 +1,11 @@
+import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { mockResources, mockUniversities } from "@/data/mockData";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ExternalLink, BookOpen, Video, FileText, Code, Building2, User, Download, Star, Play } from "lucide-react";
+import { Navigation } from "@/components/Navigation";
 
 const typeColors: Record<string, string> = {
   theory: "bg-primary/10 text-primary border-primary/20",
@@ -47,13 +49,16 @@ export default function ResourceDetail() {
 
   if (!resource) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="text-center animate-fade-in">
-          <h1 className="text-2xl font-light text-foreground mb-4">Resource not found</h1>
-          <Button onClick={() => navigate("/")} variant="outline">
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Go back
-          </Button>
+      <div className="min-h-screen bg-background">
+        <Navigation />
+        <div className="flex items-center justify-center min-h-[calc(100vh-4rem)]">
+          <div className="text-center animate-fade-in">
+            <h1 className="text-2xl font-light text-foreground mb-4">Resource not found</h1>
+            <Button onClick={() => navigate("/")} variant="outline">
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Go back
+            </Button>
+          </div>
         </div>
       </div>
     );
@@ -61,6 +66,7 @@ export default function ResourceDetail() {
 
   return (
     <div className="min-h-screen bg-background">
+      <Navigation />
       <div className="max-w-4xl mx-auto px-4 py-8 space-y-6 animate-fade-in">
         {/* Header */}
         <div className="flex items-center gap-4">

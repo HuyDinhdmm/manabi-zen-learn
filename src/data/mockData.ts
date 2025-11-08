@@ -1,4 +1,5 @@
 import { Goal } from "@/types/goal";
+import { Quiz } from "@/types/quiz";
 
 export const mockGoals: Goal[] = [
   // Completed goals (100% progress) - Green colors
@@ -758,7 +759,9 @@ export const mockUniversities: University[] = [
         type: "theory",
         description: "Giáo trình hệ điều hành từ cơ bản đến nâng cao",
         fileUrl: "https://example.com/os-theory.pdf",
-        tags: ["#operating-system", "#system", "#theory"]
+        tags: ["#operating-system", "#system", "#theory"],
+        rating: 0,
+        reviewCount: 0
       },
       {
         id: "1-5",
@@ -767,7 +770,9 @@ export const mockUniversities: University[] = [
         type: "theory",
         description: "Nguyên lý hoạt động và kiến trúc máy tính",
         fileUrl: "https://example.com/computer-architecture.pdf",
-        tags: ["#computer-architecture", "#hardware", "#system"]
+        tags: ["#computer-architecture", "#hardware", "#system"],
+        rating: 0,
+        reviewCount: 0
       }
     ]
   },
@@ -784,7 +789,9 @@ export const mockUniversities: University[] = [
         type: "theory",
         description: "Giáo trình cấu trúc dữ liệu và thuật toán",
         fileUrl: "https://example.com/ds-algo-hcm-theory.pdf",
-        tags: ["#algorithms", "#data-structures", "#programming"]
+        tags: ["#algorithms", "#data-structures", "#programming"],
+        rating: 0,
+        reviewCount: 0
       },
       {
         id: "2-2",
@@ -793,7 +800,9 @@ export const mockUniversities: University[] = [
         type: "practice",
         description: "Bài tập thực hành lập trình",
         fileUrl: "https://example.com/ds-algo-hcm-practice.pdf",
-        tags: ["#practice", "#programming", "#exercises"]
+        tags: ["#practice", "#programming", "#exercises"],
+        rating: 0,
+        reviewCount: 0
       },
       {
         id: "2-3",
@@ -802,7 +811,9 @@ export const mockUniversities: University[] = [
         type: "exam",
         description: "Bộ đề thi và đáp án chi tiết",
         fileUrl: "https://example.com/ds-algo-hcm-exams.pdf",
-        tags: ["#exams", "#test", "#algorithms"]
+        tags: ["#exams", "#test", "#algorithms"],
+        rating: 0,
+        reviewCount: 0
       },
       {
         id: "2-4",
@@ -811,7 +822,9 @@ export const mockUniversities: University[] = [
         type: "theory",
         description: "Giáo trình mạng máy tính và internet",
         fileUrl: "https://example.com/computer-networks.pdf",
-        tags: ["#networking", "#internet", "#communication"]
+        tags: ["#networking", "#internet", "#communication"],
+        rating: 0,
+        reviewCount: 0
       }
     ]
   },
@@ -828,7 +841,9 @@ export const mockUniversities: University[] = [
         type: "theory",
         description: "Giáo trình cấu trúc dữ liệu và thuật toán",
         fileUrl: "https://example.com/ds-algo-natural-theory.pdf",
-        tags: ["#algorithms", "#data-structures", "#programming"]
+        tags: ["#algorithms", "#data-structures", "#programming"],
+        rating: 0,
+        reviewCount: 0
       },
       {
         id: "3-2",
@@ -837,7 +852,9 @@ export const mockUniversities: University[] = [
         type: "exercise",
         description: "Tuyển tập bài tập có lời giải chi tiết",
         fileUrl: "https://example.com/ds-algo-natural-exercises.pdf",
-        tags: ["#exercises", "#practice", "#algorithms"]
+        tags: ["#exercises", "#practice", "#algorithms"],
+        rating: 0,
+        reviewCount: 0
       },
       {
         id: "3-3",
@@ -846,7 +863,9 @@ export const mockUniversities: University[] = [
         type: "practice",
         description: "Bài tập thực hành lập trình C/C++",
         fileUrl: "https://example.com/programming-practice.pdf",
-        tags: ["#practice", "#programming", "#c-cpp"]
+        tags: ["#practice", "#programming", "#c-cpp"],
+        rating: 0,
+        reviewCount: 0
       },
       {
         id: "3-4",
@@ -855,7 +874,9 @@ export const mockUniversities: University[] = [
         type: "exam",
         description: "Bộ đề thi các năm với đáp án",
         fileUrl: "https://example.com/ds-algo-natural-exams.pdf",
-        tags: ["#exams", "#test", "#algorithms"]
+        tags: ["#exams", "#test", "#algorithms"],
+        rating: 0,
+        reviewCount: 0
       }
     ]
   },
@@ -872,7 +893,9 @@ export const mockUniversities: University[] = [
         type: "theory",
         description: "Giáo trình cấu trúc dữ liệu và thuật toán",
         fileUrl: "https://example.com/ds-algo-it-theory.pdf",
-        tags: ["#algorithms", "#data-structures", "#programming"]
+        tags: ["#algorithms", "#data-structures", "#programming"],
+        rating: 0,
+        reviewCount: 0
       },
       {
         id: "4-2",
@@ -881,7 +904,9 @@ export const mockUniversities: University[] = [
         type: "practice",
         description: "Bài tập thực hành lập trình",
         fileUrl: "https://example.com/ds-algo-it-practice.pdf",
-        tags: ["#practice", "#programming", "#exercises"]
+        tags: ["#practice", "#programming", "#exercises"],
+        rating: 0,
+        reviewCount: 0
       },
       {
         id: "4-3",
@@ -890,7 +915,9 @@ export const mockUniversities: University[] = [
         type: "exam",
         description: "Bộ đề thi và đáp án chi tiết",
         fileUrl: "https://example.com/ds-algo-it-exams.pdf",
-        tags: ["#exams", "#test", "#algorithms"]
+        tags: ["#exams", "#test", "#algorithms"],
+        rating: 0,
+        reviewCount: 0
       }
     ]
   },
@@ -907,7 +934,9 @@ export const mockUniversities: University[] = [
         type: "theory",
         description: "Giáo trình cấu trúc dữ liệu và thuật toán",
         fileUrl: "https://example.com/ds-algo-bcvt-theory.pdf",
-        tags: ["#algorithms", "#data-structures", "#programming"]
+        tags: ["#algorithms", "#data-structures", "#programming"],
+        rating: 0,
+        reviewCount: 0
       },
       {
         id: "5-2",
@@ -916,7 +945,9 @@ export const mockUniversities: University[] = [
         type: "exercise",
         description: "Tuyển tập bài tập từ cơ bản đến nâng cao",
         fileUrl: "https://example.com/ds-algo-bcvt-exercises.pdf",
-        tags: ["#exercises", "#practice", "#algorithms"]
+        tags: ["#exercises", "#practice", "#algorithms"],
+        rating: 0,
+        reviewCount: 0
       }
     ]
   },
@@ -933,7 +964,421 @@ export const mockUniversities: University[] = [
         type: "theory",
         description: "Giáo trình cấu trúc dữ liệu và thuật toán",
         fileUrl: "https://example.com/ds-algo-cantho-theory.pdf",
-        tags: ["#algorithms", "#data-structures", "#programming"]
+        tags: ["#algorithms", "#data-structures", "#programming"],
+        rating: 0,
+        reviewCount: 0
+      }
+    ]
+  }
+];
+
+// Quiz Data
+export const mockQuizzes: Quiz[] = [
+  {
+    id: "quiz-1",
+    title: "Cấu Trúc Dữ Liệu và Giải Thuật - Cơ Bản",
+    description: "Kiểm tra kiến thức cơ bản về cấu trúc dữ liệu và thuật toán",
+    category: "Algorithms",
+    timeLimit: 1800, // 30 minutes
+    passingScore: 70,
+    tags: ["#algorithms", "#data-structures", "#programming"],
+    questions: [
+      {
+        id: "q1",
+        question: "Độ phức tạp thời gian của thuật toán Quick Sort trong trường hợp trung bình là gì?",
+        options: [
+          "O(n)",
+          "O(n log n)",
+          "O(n²)",
+          "O(log n)"
+        ],
+        correctAnswer: 1,
+        explanation: "Quick Sort có độ phức tạp O(n log n) trong trường hợp trung bình, đây là một trong những thuật toán sắp xếp hiệu quả nhất.",
+        difficulty: "medium",
+        category: "Sorting"
+      },
+      {
+        id: "q2",
+        question: "Cấu trúc dữ liệu nào sử dụng nguyên lý LIFO (Last In First Out)?",
+        options: [
+          "Queue",
+          "Stack",
+          "Tree",
+          "Graph"
+        ],
+        correctAnswer: 1,
+        explanation: "Stack sử dụng nguyên lý LIFO - phần tử được thêm vào cuối cùng sẽ được lấy ra đầu tiên.",
+        difficulty: "easy",
+        category: "Data Structures"
+      },
+      {
+        id: "q3",
+        question: "Độ phức tạp thời gian để tìm kiếm một phần tử trong Binary Search Tree (cân bằng) là gì?",
+        options: [
+          "O(n)",
+          "O(log n)",
+          "O(n log n)",
+          "O(1)"
+        ],
+        correctAnswer: 1,
+        explanation: "Binary Search Tree cân bằng có độ phức tạp O(log n) cho thao tác tìm kiếm, vì mỗi lần so sánh sẽ loại bỏ được một nửa cây.",
+        difficulty: "medium",
+        category: "Trees"
+      },
+      {
+        id: "q4",
+        question: "Thuật toán nào sử dụng kỹ thuật chia để trị (Divide and Conquer)?",
+        options: [
+          "Bubble Sort",
+          "Insertion Sort",
+          "Merge Sort",
+          "Selection Sort"
+        ],
+        correctAnswer: 2,
+        explanation: "Merge Sort sử dụng kỹ thuật chia để trị - chia mảng thành các phần nhỏ hơn, sắp xếp từng phần, sau đó hợp nhất lại.",
+        difficulty: "medium",
+        category: "Sorting"
+      },
+      {
+        id: "q5",
+        question: "Cấu trúc dữ liệu nào phù hợp nhất để implement một hàng đợi (Queue)?",
+        options: [
+          "Array",
+          "Linked List",
+          "Stack",
+          "Tree"
+        ],
+        correctAnswer: 1,
+        explanation: "Linked List phù hợp để implement Queue vì có thể thêm và xóa phần tử ở cả hai đầu một cách hiệu quả (O(1)).",
+        difficulty: "easy",
+        category: "Data Structures"
+      },
+      {
+        id: "q6",
+        question: "Độ phức tạp không gian của thuật toán Merge Sort là gì?",
+        options: [
+          "O(1)",
+          "O(log n)",
+          "O(n)",
+          "O(n²)"
+        ],
+        correctAnswer: 2,
+        explanation: "Merge Sort cần thêm không gian O(n) để lưu trữ mảng tạm trong quá trình hợp nhất (merge).",
+        difficulty: "hard",
+        category: "Sorting"
+      },
+      {
+        id: "q7",
+        question: "Trong thuật toán Dijkstra, cấu trúc dữ liệu nào được sử dụng để lưu trữ các đỉnh chưa được xử lý?",
+        options: [
+          "Stack",
+          "Queue",
+          "Priority Queue",
+          "Array"
+        ],
+        correctAnswer: 2,
+        explanation: "Priority Queue (Min Heap) được sử dụng trong Dijkstra để luôn lấy đỉnh có khoảng cách ngắn nhất tiếp theo.",
+        difficulty: "hard",
+        category: "Graphs"
+      },
+      {
+        id: "q8",
+        question: "Hash Table có độ phức tạp thời gian trung bình cho thao tác tìm kiếm là gì?",
+        options: [
+          "O(n)",
+          "O(log n)",
+          "O(1)",
+          "O(n²)"
+        ],
+        correctAnswer: 2,
+        explanation: "Hash Table có độ phức tạp O(1) trung bình cho thao tác tìm kiếm, đây là một trong những điểm mạnh của cấu trúc dữ liệu này.",
+        difficulty: "medium",
+        category: "Hash Tables"
+      },
+      {
+        id: "q9",
+        question: "Cây nhị phân tìm kiếm (BST) có tính chất nào sau đây?",
+        options: [
+          "Tất cả các node con trái đều nhỏ hơn node gốc",
+          "Tất cả các node con phải đều lớn hơn node gốc",
+          "Cả hai đều đúng",
+          "Không có tính chất nào"
+        ],
+        correctAnswer: 2,
+        explanation: "BST có cả hai tính chất: node con trái nhỏ hơn node gốc và node con phải lớn hơn node gốc.",
+        difficulty: "easy",
+        category: "Trees"
+      },
+      {
+        id: "q10",
+        question: "Thuật toán nào được sử dụng để tìm đường đi ngắn nhất từ một đỉnh đến tất cả các đỉnh khác trong đồ thị có trọng số dương?",
+        options: [
+          "BFS",
+          "DFS",
+          "Dijkstra",
+          "Floyd-Warshall"
+        ],
+        correctAnswer: 2,
+        explanation: "Thuật toán Dijkstra được sử dụng để tìm đường đi ngắn nhất từ một đỉnh nguồn đến tất cả các đỉnh khác trong đồ thị có trọng số không âm.",
+        difficulty: "hard",
+        category: "Graphs"
+      }
+    ]
+  },
+  {
+    id: "quiz-2",
+    title: "JavaScript Fundamentals",
+    description: "Kiểm tra kiến thức cơ bản về JavaScript",
+    category: "Programming",
+    timeLimit: 1200, // 20 minutes
+    passingScore: 60,
+    tags: ["#javascript", "#programming", "#web"],
+    questions: [
+      {
+        id: "q1",
+        question: "Kết quả của đoạn code sau là gì?\n\nconst a = [1, 2, 3];\nconst b = a;\nb.push(4);\nconsole.log(a);",
+        options: [
+          "[1, 2, 3]",
+          "[1, 2, 3, 4]",
+          "[4]",
+          "Error"
+        ],
+        correctAnswer: 1,
+        explanation: "Trong JavaScript, array được truyền theo reference. Khi gán b = a, cả hai biến đều trỏ đến cùng một mảng. Do đó khi b.push(4), mảng a cũng bị thay đổi.",
+        difficulty: "medium",
+        category: "Arrays"
+      },
+      {
+        id: "q2",
+        question: "Kết quả của '2' + 2 trong JavaScript là gì?",
+        options: [
+          "4",
+          "22",
+          "NaN",
+          "Error"
+        ],
+        correctAnswer: 1,
+        explanation: "Khi sử dụng toán tử + với một string, JavaScript sẽ chuyển đổi số thành string và thực hiện nối chuỗi, kết quả là '22'.",
+        difficulty: "easy",
+        category: "Type Coercion"
+      },
+      {
+        id: "q3",
+        question: "Phương thức nào sau đây KHÔNG tạo ra một mảng mới?",
+        options: [
+          "map()",
+          "filter()",
+          "forEach()",
+          "reduce()"
+        ],
+        correctAnswer: 2,
+        explanation: "forEach() không tạo mảng mới, nó chỉ thực hiện một hàm cho mỗi phần tử. map(), filter() và reduce() đều tạo ra giá trị mới.",
+        difficulty: "easy",
+        category: "Array Methods"
+      },
+      {
+        id: "q4",
+        question: "Sự khác biệt giữa let và const là gì?",
+        options: [
+          "let có thể khai báo lại, const không thể",
+          "const có thể thay đổi giá trị, let không thể",
+          "Không có sự khác biệt",
+          "let dùng cho function, const dùng cho object"
+        ],
+        correctAnswer: 0,
+        explanation: "let cho phép khai báo lại biến trong cùng một scope, còn const không cho phép. Cả hai đều là block-scoped và không thể khai báo lại trong cùng một scope.",
+        difficulty: "easy",
+        category: "Variables"
+      },
+      {
+        id: "q5",
+        question: "Kết quả của đoạn code sau là gì?\n\nsetTimeout(() => console.log('A'), 0);\nconsole.log('B');",
+        options: [
+          "A B",
+          "B A",
+          "A",
+          "B"
+        ],
+        correctAnswer: 1,
+        explanation: "Do JavaScript event loop, setTimeout được đưa vào callback queue và chỉ thực thi sau khi call stack rỗng. Do đó 'B' sẽ được in trước 'A'.",
+        difficulty: "hard",
+        category: "Asynchronous"
+      }
+    ]
+  },
+  {
+    id: "quiz-3",
+    title: "React Fundamentals",
+    description: "Kiểm tra kiến thức về React và các khái niệm cơ bản",
+    category: "Frontend",
+    timeLimit: 1500, // 25 minutes
+    passingScore: 65,
+    tags: ["#react", "#frontend", "#javascript"],
+    questions: [
+      {
+        id: "q1",
+        question: "Hook nào được sử dụng để quản lý state trong functional component?",
+        options: [
+          "useState",
+          "useEffect",
+          "useContext",
+          "useReducer"
+        ],
+        correctAnswer: 0,
+        explanation: "useState là hook cơ bản nhất để quản lý state trong functional component. Các hook khác có mục đích khác nhau.",
+        difficulty: "easy",
+        category: "Hooks"
+      },
+      {
+        id: "q2",
+        question: "Khi nào component sẽ re-render trong React?",
+        options: [
+          "Khi state thay đổi",
+          "Khi props thay đổi",
+          "Khi parent component re-render",
+          "Tất cả các đáp án trên"
+        ],
+        correctAnswer: 3,
+        explanation: "Component sẽ re-render khi state thay đổi, props thay đổi, hoặc khi parent component re-render (trừ khi được tối ưu với React.memo).",
+        difficulty: "medium",
+        category: "Rendering"
+      },
+      {
+        id: "q3",
+        question: "Sự khác biệt giữa controlled và uncontrolled component là gì?",
+        options: [
+          "Controlled: state quản lý bởi React, Uncontrolled: state quản lý bởi DOM",
+          "Không có sự khác biệt",
+          "Controlled dùng cho class component, Uncontrolled dùng cho functional component",
+          "Tất cả đều sai"
+        ],
+        correctAnswer: 0,
+        explanation: "Controlled component: React quản lý state của form element thông qua state và onChange. Uncontrolled component: DOM tự quản lý state thông qua ref.",
+        difficulty: "medium",
+        category: "Forms"
+      },
+      {
+        id: "q4",
+        question: "useEffect với dependency array rỗng [] sẽ chạy khi nào?",
+        options: [
+          "Mỗi lần component render",
+          "Chỉ một lần sau khi component mount",
+          "Mỗi khi state thay đổi",
+          "Không bao giờ chạy"
+        ],
+        correctAnswer: 1,
+        explanation: "useEffect với dependency array rỗng [] chỉ chạy một lần sau khi component mount, tương đương với componentDidMount trong class component.",
+        difficulty: "easy",
+        category: "Hooks"
+      },
+      {
+        id: "q5",
+        question: "React.memo() được sử dụng để làm gì?",
+        options: [
+          "Tối ưu performance bằng cách memoize component",
+          "Quản lý memory",
+          "Lưu trữ data",
+          "Tạo memo component"
+        ],
+        correctAnswer: 0,
+        explanation: "React.memo() là Higher Order Component để tối ưu performance bằng cách chỉ re-render component khi props thay đổi (shallow comparison).",
+        difficulty: "medium",
+        category: "Optimization"
+      },
+      {
+        id: "q6",
+        question: "Context API được sử dụng để làm gì?",
+        options: [
+          "Quản lý global state",
+          "Truyền data qua nhiều level component mà không cần prop drilling",
+          "Thay thế Redux",
+          "Tất cả các đáp án trên"
+        ],
+        correctAnswer: 1,
+        explanation: "Context API được sử dụng chủ yếu để tránh prop drilling - truyền data từ component cha xuống component con ở nhiều level mà không cần truyền qua từng level.",
+        difficulty: "medium",
+        category: "State Management"
+      }
+    ]
+  },
+  {
+    id: "quiz-4",
+    title: "Database & SQL Basics",
+    description: "Kiểm tra kiến thức về cơ sở dữ liệu và SQL",
+    category: "Database",
+    timeLimit: 1800, // 30 minutes
+    passingScore: 70,
+    tags: ["#database", "#sql", "#backend"],
+    questions: [
+      {
+        id: "q1",
+        question: "ACID trong database là viết tắt của gì?",
+        options: [
+          "Atomicity, Consistency, Isolation, Durability",
+          "Access, Control, Integrity, Data",
+          "Association, Collection, Index, Definition",
+          "Tất cả đều sai"
+        ],
+        correctAnswer: 0,
+        explanation: "ACID là các thuộc tính của transaction trong database: Atomicity (tính nguyên tử), Consistency (tính nhất quán), Isolation (tính cô lập), Durability (tính bền vững).",
+        difficulty: "medium",
+        category: "Transactions"
+      },
+      {
+        id: "q2",
+        question: "Loại JOIN nào trả về tất cả các bản ghi từ bảng bên trái và các bản ghi khớp từ bảng bên phải?",
+        options: [
+          "INNER JOIN",
+          "LEFT JOIN",
+          "RIGHT JOIN",
+          "FULL JOIN"
+        ],
+        correctAnswer: 1,
+        explanation: "LEFT JOIN trả về tất cả các bản ghi từ bảng bên trái (left table) và các bản ghi khớp từ bảng bên phải. Nếu không có bản ghi khớp, giá trị NULL sẽ được trả về.",
+        difficulty: "easy",
+        category: "SQL Joins"
+      },
+      {
+        id: "q3",
+        question: "Index trong database được sử dụng để làm gì?",
+        options: [
+          "Tăng tốc độ truy vấn",
+          "Giảm không gian lưu trữ",
+          "Tăng tính bảo mật",
+          "Quản lý transaction"
+        ],
+        correctAnswer: 0,
+        explanation: "Index được sử dụng để tăng tốc độ truy vấn bằng cách tạo một cấu trúc dữ liệu bổ sung cho phép database tìm kiếm nhanh hơn.",
+        difficulty: "easy",
+        category: "Performance"
+      },
+      {
+        id: "q4",
+        question: "Normalization trong database là gì?",
+        options: [
+          "Quá trình tổ chức dữ liệu để giảm redundancy",
+          "Quá trình tăng tốc độ truy vấn",
+          "Quá trình backup dữ liệu",
+          "Quá trình mã hóa dữ liệu"
+        ],
+        correctAnswer: 0,
+        explanation: "Normalization là quá trình tổ chức dữ liệu trong database để giảm redundancy (dư thừa) và đảm bảo data integrity bằng cách chia nhỏ các bảng và thiết lập quan hệ giữa chúng.",
+        difficulty: "medium",
+        category: "Database Design"
+      },
+      {
+        id: "q5",
+        question: "Sự khác biệt giữa PRIMARY KEY và UNIQUE constraint là gì?",
+        options: [
+          "PRIMARY KEY không cho phép NULL, UNIQUE cho phép một NULL",
+          "Không có sự khác biệt",
+          "PRIMARY KEY chỉ có một, UNIQUE có thể có nhiều",
+          "Cả A và C đều đúng"
+        ],
+        correctAnswer: 3,
+        explanation: "PRIMARY KEY: không cho phép NULL và mỗi bảng chỉ có một. UNIQUE: cho phép một giá trị NULL và mỗi bảng có thể có nhiều UNIQUE constraints.",
+        difficulty: "medium",
+        category: "Constraints"
       }
     ]
   }

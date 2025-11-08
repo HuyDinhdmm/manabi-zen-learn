@@ -9,6 +9,7 @@ import { GoalDialog } from "./GoalDialog";
 import { Goal } from "@/types/goal";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { toast } from "@/hooks/use-toast";
+import { StudyTimerButton } from "./StudyTimerButton";
 
 const categoryColors: Record<Goal["category"], string> = {
   theory: "bg-primary/10 text-primary border-primary/20",
@@ -76,6 +77,19 @@ export const GoalsManager = () => {
       });
       setGoalToDelete(null);
     }
+  };
+
+  const handleTimerStop = (goalId: string, durationHours: number) => {
+    setGoals(goals.map(goal => {
+      if (goal.id === goalId) {
+        const newCurrentHours = Math.min(goal.currentHours + durationHours, goal.targetHours);
+        return {
+          ...goal,
+          currentHours: newCurrentHours,
+        };
+      }
+      return goal;
+    }));
   };
 
   const formatDeadline = (deadline?: string) => {
@@ -162,6 +176,16 @@ export const GoalsManager = () => {
                         {formatDeadline(goal.deadline)}
                       </span>
                     )}
+                  </div>
+
+                  <div className="pt-2 border-t border-border">
+                    <StudyTimerButton
+                      goalId={goal.id}
+                      size="sm"
+                      variant="outline"
+                      compact={true}
+                      onStop={(durationHours) => handleTimerStop(goal.id, durationHours)}
+                    />
                   </div>
                 </div>
               </Card>
