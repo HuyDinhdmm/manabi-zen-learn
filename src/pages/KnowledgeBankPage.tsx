@@ -1,17 +1,15 @@
-import { Dashboard } from "@/components/Dashboard";
+import { KnowledgeBank } from "@/components/KnowledgeBank";
 import { Navigation } from "@/components/Navigation";
 import { Toaster } from "@/components/ui/toaster";
 
-const Index = () => {
+export default function KnowledgeBankPage() {
   return (
     <div className="min-h-screen bg-background">
-      <Navigation activeTab="dashboard" />
+      <Navigation activeTab="knowledge" />
       <main className="container mx-auto px-6 py-8 max-w-7xl">
-        <Dashboard />
+        <KnowledgeBank />
       </main>
       <Toaster />
     </div>
   );
-};
-
-export default Index;
+}

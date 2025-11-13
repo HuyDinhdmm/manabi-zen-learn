@@ -1,17 +1,15 @@
-import { Dashboard } from "@/components/Dashboard";
+import { GoalsManager } from "@/components/GoalsManager";
 import { Navigation } from "@/components/Navigation";
 import { Toaster } from "@/components/ui/toaster";
 
-const Index = () => {
+export default function GoalsPage() {
   return (
     <div className="min-h-screen bg-background">
-      <Navigation activeTab="dashboard" />
+      <Navigation activeTab="goals" />
       <main className="container mx-auto px-6 py-8 max-w-7xl">
-        <Dashboard />
+        <GoalsManager />
       </main>
       <Toaster />
     </div>
   );
-};
-
-export default Index;
+}

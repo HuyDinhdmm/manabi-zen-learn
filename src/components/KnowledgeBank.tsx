@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { BookOpen, Video, FileText, Code, ExternalLink } from "lucide-react";
-import { mockResources } from "@/data/mockData";
+import { mockResources, filterResourcesByTags } from "@/data/mockData";
+import { useSearchParams } from "react-router-dom";
 
 const resources = mockResources;
 
@@ -25,6 +26,11 @@ export const KnowledgeBank = () => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = React.useState("");
   const [selectedType, setSelectedType] = React.useState<string | null>(null);
+  const [searchParams] = useSearchParams();
+
+  // support ?tag=xxx to pre-filter resources by tag
+  const tagParam = searchParams.get("tag");
+  const normalizedTag = tagParam ? tagParam.toLowerCase().replace(/^#/, "") : null;
 
   const filteredResources = resources.filter((resource) => {
     const matchesSearch = 
@@ -33,8 +39,10 @@ export const KnowledgeBank = () => {
       resource.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
     
     const matchesType = !selectedType || resource.type === selectedType;
+
+    const matchesTag = !normalizedTag || resource.tags.map(t => t.toLowerCase().replace(/^#/, "")).includes(normalizedTag);
     
-    return matchesSearch && matchesType;
+    return matchesSearch && matchesType && matchesTag;
   });
 
   return (

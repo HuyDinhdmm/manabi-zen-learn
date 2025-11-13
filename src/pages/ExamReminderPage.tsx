@@ -1,17 +1,16 @@
-import { Dashboard } from "@/components/Dashboard";
+import { ExamManager } from "@/components/ExamManager";
 import { Navigation } from "@/components/Navigation";
 import { Toaster } from "@/components/ui/toaster";
+import { mockExams } from "@/data/mockData";
 
-const Index = () => {
+export default function ExamReminderPage() {
   return (
     <div className="min-h-screen bg-background">
-      <Navigation activeTab="dashboard" />
+      <Navigation activeTab="exam-reminder" />
       <main className="container mx-auto px-6 py-8 max-w-7xl">
-        <Dashboard />
+        <ExamManager initialExams={mockExams} />
       </main>
       <Toaster />
     </div>
   );
-};
-
-export default Index;
+}

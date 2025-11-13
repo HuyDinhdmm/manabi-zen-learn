@@ -1,259 +1,155 @@
 import { Goal } from "@/types/goal";
 import { Quiz } from "@/types/quiz";
+import { Resource } from "@/types/content";
+import { Exam } from "@/types/exam";
 
 export const mockGoals: Goal[] = [
-  // Completed goals (100% progress) - Green colors
+  // Completed goals (100% progress)
   {
     id: "1",
-    title: "Master Machine Learning Fundamentals",
-    description: "Complete Andrew Ng's ML course and build 3 practice projects",
+    title: "React Hooks Fundamentals",
+    description: "Learn useState, useEffect, useContext, and build reusable components",
     category: "theory",
-    targetHours: 40,
-    currentHours: 40,
-    deadline: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(),
-    createdAt: new Date(Date.now() - 35 * 24 * 60 * 60 * 1000).toISOString(),
-  },
-  {
-    id: "4",
-    title: "Linear Regression Implementation",
-    description: "Code gradient descent from scratch and visualize the results",
-    category: "practice",
-    targetHours: 10,
-    currentHours: 10,
-    deadline: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString(),
-    createdAt: new Date(Date.now() - 20 * 24 * 60 * 60 * 1000).toISOString(),
-  },
-  {
-    id: "11",
-    title: "Git & Version Control Mastery",
-    description: "Advanced Git workflows, branching strategies, and collaborative development practices",
-    category: "skill",
-    targetHours: 12,
-    currentHours: 12,
-    deadline: new Date(Date.now() - 8 * 24 * 60 * 60 * 1000).toISOString(),
-    createdAt: new Date(Date.now() - 25 * 24 * 60 * 60 * 1000).toISOString(),
-  },
-  {
-    id: "13",
-    title: "Python Web Scraping Project",
-    description: "Build a comprehensive web scraper with BeautifulSoup, Selenium, and data storage",
-    category: "practice",
-    targetHours: 18,
-    currentHours: 18,
-    deadline: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString(),
-    createdAt: new Date(Date.now() - 22 * 24 * 60 * 60 * 1000).toISOString(),
-  },
-  {
-    id: "20",
-    title: "Advanced CSS & Animations",
-    description: "Master CSS Grid, Flexbox, animations, and modern layout techniques",
-    category: "skill",
     targetHours: 20,
     currentHours: 20,
-    deadline: new Date(Date.now() - 6 * 24 * 60 * 60 * 1000).toISOString(),
+    deadline: new Date(Date.now() - 10 * 24 * 60 * 60 * 1000).toISOString(),
     createdAt: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString(),
   },
 
-  // Nearly completed goals (80-95% progress) - Blue colors
-  {
-    id: "2",
-    title: "Build Portfolio Website",
-    description: "Create a responsive portfolio showcasing 5 projects with modern design",
-    category: "project",
-    targetHours: 20,
-    currentHours: 18,
-    deadline: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString(),
-    createdAt: new Date(Date.now() - 15 * 24 * 60 * 60 * 1000).toISOString(),
-  },
-  {
-    id: "3",
-    title: "React Advanced Patterns",
-    description: "Learn custom hooks, context API, and performance optimization",
-    category: "theory",
-    targetHours: 15,
-    currentHours: 14,
-    deadline: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toISOString(),
-    createdAt: new Date(Date.now() - 10 * 24 * 60 * 60 * 1000).toISOString(),
-  },
-  {
-    id: "5",
-    title: "Data Structures & Algorithms",
-    description: "Practice 50 LeetCode problems focusing on arrays, trees, and graphs",
-    category: "practice",
-    targetHours: 30,
-    currentHours: 27,
-    deadline: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000).toISOString(),
-    createdAt: new Date(Date.now() - 17 * 24 * 60 * 60 * 1000).toISOString(),
-  },
-
-  // In progress goals (40-70% progress) - Orange/Yellow colors
-  {
-    id: "6",
-    title: "E-commerce Dashboard Project",
-    description: "Build a full-stack admin dashboard with real-time analytics",
-    category: "project",
-    targetHours: 50,
-    currentHours: 32,
-    deadline: new Date(Date.now() + 25 * 24 * 60 * 60 * 1000).toISOString(),
-    createdAt: new Date(Date.now() - 13 * 24 * 60 * 60 * 1000).toISOString(),
-  },
+  // Completed goals (100% progress)
   {
     id: "8",
-    title: "Database Design & Optimization",
-    description: "Learn PostgreSQL, indexing strategies, and query optimization techniques",
+    title: "JavaScript ES6+ Essentials",
+    description: "Master modern JavaScript features including arrow functions, destructuring, spread operator, and async/await",
     category: "theory",
-    targetHours: 35,
-    currentHours: 21,
-    deadline: new Date(Date.now() + 20 * 24 * 60 * 60 * 1000).toISOString(),
-    createdAt: new Date(Date.now() - 12 * 24 * 60 * 60 * 1000).toISOString(),
-  },
-  {
-    id: "12",
-    title: "AWS Cloud Architecture",
-    description: "Learn cloud services, deployment strategies, and infrastructure as code",
-    category: "skill",
-    targetHours: 40,
-    currentHours: 24,
-    deadline: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(),
-    createdAt: new Date(Date.now() - 19 * 24 * 60 * 60 * 1000).toISOString(),
-  },
-  {
-    id: "18",
-    title: "Computer Vision with OpenCV",
-    description: "Image processing, object detection, and face recognition applications",
-    category: "theory",
-    targetHours: 38,
-    currentHours: 22,
-    deadline: new Date(Date.now() + 27 * 24 * 60 * 60 * 1000).toISOString(),
-    createdAt: new Date(Date.now() - 18 * 24 * 60 * 60 * 1000).toISOString(),
-  },
-  {
-    id: "19",
-    title: "Real-time Chat Application",
-    description: "Build a scalable chat app with Socket.io, Redis, and user authentication",
-    category: "project",
-    targetHours: 42,
-    currentHours: 28,
-    deadline: new Date(Date.now() + 17 * 24 * 60 * 60 * 1000).toISOString(),
-    createdAt: new Date(Date.now() - 21 * 24 * 60 * 60 * 1000).toISOString(),
+    targetHours: 16,
+    currentHours: 16,
+    deadline: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString(),
+    createdAt: new Date(Date.now() - 25 * 24 * 60 * 60 * 1000).toISOString(),
   },
 
-  // Early stage goals (10-35% progress) - Purple/Red colors
+  // In progress goals (80-95% progress)
   {
-    id: "7",
-    title: "TypeScript Mastery",
-    description: "Deep dive into advanced TypeScript features, generics, and type manipulation",
-    category: "skill",
-    targetHours: 25,
-    currentHours: 7,
-    deadline: new Date(Date.now() + 40 * 24 * 60 * 60 * 1000).toISOString(),
-    createdAt: new Date(Date.now() - 8 * 24 * 60 * 60 * 1000).toISOString(),
-  },
-  {
-    id: "9",
-    title: "Mobile App with React Native",
-    description: "Build a cross-platform mobile app with navigation, state management, and API integration",
+    id: "2",
+    title: "Build Todo App with React",
+    description: "Create a responsive todo application with add, edit, delete, and filter features",
     category: "project",
-    targetHours: 60,
-    currentHours: 12,
-    deadline: new Date(Date.now() + 55 * 24 * 60 * 60 * 1000).toISOString(),
-    createdAt: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString(),
-  },
-  {
-    id: "10",
-    title: "System Design Fundamentals",
-    description: "Understand scalability, load balancing, caching, and microservices architecture",
-    category: "theory",
-    targetHours: 45,
-    currentHours: 13,
-    deadline: new Date(Date.now() + 35 * 24 * 60 * 60 * 1000).toISOString(),
-    createdAt: new Date(Date.now() - 14 * 24 * 60 * 60 * 1000).toISOString(),
-  },
-  {
-    id: "14",
-    title: "UI/UX Design Principles",
-    description: "Study design systems, user research, and prototyping with Figma",
-    category: "theory",
-    targetHours: 30,
-    currentHours: 9,
-    deadline: new Date(Date.now() + 45 * 24 * 60 * 60 * 1000).toISOString(),
-    createdAt: new Date(Date.now() - 9 * 24 * 60 * 60 * 1000).toISOString(),
-  },
-  {
-    id: "16",
-    title: "DevOps & CI/CD Pipeline",
-    description: "Set up automated testing, deployment pipelines with GitHub Actions and Docker",
-    category: "skill",
-    targetHours: 28,
-    currentHours: 11,
-    deadline: new Date(Date.now() + 23 * 24 * 60 * 60 * 1000).toISOString(),
-    createdAt: new Date(Date.now() - 16 * 24 * 60 * 60 * 1000).toISOString(),
-  },
-  {
-    id: "17",
-    title: "GraphQL API Development",
-    description: "Build efficient APIs with GraphQL, Apollo Server, and real-time subscriptions",
-    category: "practice",
-    targetHours: 22,
-    currentHours: 6,
-    deadline: new Date(Date.now() + 13 * 24 * 60 * 60 * 1000).toISOString(),
-    createdAt: new Date(Date.now() - 11 * 24 * 60 * 60 * 1000).toISOString(),
-  },
-
-  // Just started goals (0-10% progress) - Gray colors
-  {
-    id: "15",
-    title: "Blockchain Development",
-    description: "Learn smart contracts, Web3.js, and build a decentralized application",
-    category: "project",
-    targetHours: 70,
-    currentHours: 2,
-    deadline: new Date(Date.now() + 85 * 24 * 60 * 60 * 1000).toISOString(),
-    createdAt: new Date(Date.now() - 6 * 24 * 60 * 60 * 1000).toISOString(),
-  },
-  {
-    id: "21",
-    title: "Vue.js Ecosystem Mastery",
-    description: "Learn Vue 3, Composition API, Pinia, and build modern applications",
-    category: "theory",
-    targetHours: 32,
-    currentHours: 1,
-    deadline: new Date(Date.now() + 38 * 24 * 60 * 60 * 1000).toISOString(),
-    createdAt: new Date(Date.now() - 4 * 24 * 60 * 60 * 1000).toISOString(),
-  },
-  {
-    id: "22",
-    title: "Microservices with Spring Boot",
-    description: "Build scalable microservices architecture with Spring Boot and Docker",
-    category: "project",
-    targetHours: 55,
-    currentHours: 3,
-    deadline: new Date(Date.now() + 65 * 24 * 60 * 60 * 1000).toISOString(),
+    targetHours: 15,
+    currentHours: 14,
+    deadline: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000).toISOString(),
     createdAt: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString(),
   },
+
+  // In progress goals (60-75% progress)
   {
-    id: "23",
-    title: "Machine Learning with Python",
-    description: "Scikit-learn, Pandas, NumPy for data analysis and predictive modeling",
+    id: "3",
+    title: "TypeScript Basics",
+    description: "Master TypeScript types, interfaces, and generics for type-safe code",
+    category: "theory",
+    targetHours: 18,
+    currentHours: 11,
+    deadline: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
+    createdAt: new Date(Date.now() - 8 * 24 * 60 * 60 * 1000).toISOString(),
+  },
+
+  // In progress goals (50-65% progress)
+  {
+    id: "4",
+    title: "REST API with Node.js & Express",
+    description: "Build a RESTful API with authentication, validation, and database integration",
     category: "practice",
-    targetHours: 36,
-    currentHours: 1,
-    deadline: new Date(Date.now() + 42 * 24 * 60 * 60 * 1000).toISOString(),
+    targetHours: 25,
+    currentHours: 13,
+    deadline: new Date(Date.now() + 10 * 24 * 60 * 60 * 1000).toISOString(),
+    createdAt: new Date(Date.now() - 12 * 24 * 60 * 60 * 1000).toISOString(),
+  },
+
+  // In progress goals (35-50% progress)
+  {
+    id: "5",
+    title: "Database Design with PostgreSQL",
+    description: "Learn relational database design, normalization, and query optimization",
+    category: "theory",
+    targetHours: 20,
+    currentHours: 9,
+    deadline: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toISOString(),
+    createdAt: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString(),
+  },
+
+  // Early stage goals (15-35% progress)
+  {
+    id: "6",
+    title: "Full-Stack E-commerce Project",
+    description: "Build complete e-commerce platform with frontend, backend, and payment integration",
+    category: "project",
+    targetHours: 60,
+    currentHours: 18,
+    deadline: new Date(Date.now() + 45 * 24 * 60 * 60 * 1000).toISOString(),
     createdAt: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString(),
   },
+
+  // Early stage goals (5-20% progress)
   {
-    id: "24",
-    title: "Cloud Security Fundamentals",
-    description: "Learn AWS Security, IAM, encryption, and compliance best practices",
-    category: "skill",
-    targetHours: 26,
-    currentHours: 0,
-    deadline: new Date(Date.now() + 33 * 24 * 60 * 60 * 1000).toISOString(),
+    id: "7",
+    title: "Docker & Containerization",
+    description: "Learn Docker basics, containers, and Docker Compose for multi-service apps",
+    category: "practice",
+    targetHours: 16,
+    currentHours: 2,
+    deadline: new Date(Date.now() + 21 * 24 * 60 * 60 * 1000).toISOString(),
+    createdAt: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString(),
+  },
+
+  // New goals just started
+  {
+    id: "9",
+    title: "Vue.js Fundamentals",
+    description: "Learn Vue 3 composition API, reactive data, and component lifecycle",
+    category: "theory",
+    targetHours: 22,
+    currentHours: 3,
+    deadline: new Date(Date.now() + 28 * 24 * 60 * 60 * 1000).toISOString(),
+    createdAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(),
+  },
+
+  // New project milestone
+  {
+    id: "10",
+    title: "Weather Dashboard API Integration",
+    description: "Build a weather app with real-time API data, caching, and responsive UI",
+    category: "project",
+    targetHours: 12,
+    currentHours: 5,
+    deadline: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toISOString(),
+    createdAt: new Date(Date.now() - 4 * 24 * 60 * 60 * 1000).toISOString(),
+  },
+
+  // Intermediate goal
+  {
+    id: "11",
+    title: "Advanced CSS & Animations",
+    description: "Master CSS Grid, Flexbox, transitions, and keyframe animations",
+    category: "theory",
+    targetHours: 14,
+    currentHours: 7,
+    deadline: new Date(Date.now() + 9 * 24 * 60 * 60 * 1000).toISOString(),
+    createdAt: new Date(Date.now() - 9 * 24 * 60 * 60 * 1000).toISOString(),
+  },
+
+  // Practice focused
+  {
+    id: "12",
+    title: "GraphQL Fundamentals & Apollo Client",
+    description: "Learn GraphQL queries, mutations, subscriptions and Apollo Client setup",
+    category: "practice",
+    targetHours: 18,
+    currentHours: 4,
+    deadline: new Date(Date.now() + 16 * 24 * 60 * 60 * 1000).toISOString(),
     createdAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(),
   },
 ];
 
-export const mockResources = [
+export const mockResources: Resource[] = [
   {
     id: 1,
     title: "Introduction to Neural Networks",
@@ -686,6 +582,18 @@ export const mockResources = [
     ],
   },
 ];
+
+export function filterResourcesByTags(resources: Resource[], tags: string[]) {
+  if (!tags || tags.length === 0) return resources;
+  const normalized = tags.map((t) => t.toLowerCase().replace(/^#/, ""));
+  return resources.filter((r) => {
+    const rtags = (r.tags || []).map((t: string) => t.toLowerCase().replace(/^#/, ""));
+    return rtags.some((t: string) => normalized.includes(t));
+  });
+}
+
+// Export a default filtered set (no filter => all resources).
+export const mockResourcesFiltered = filterResourcesByTags(mockResources, []);
 
 // University and Documents Data Structure
 export interface Document {
@@ -1382,4 +1290,72 @@ export const mockQuizzes: Quiz[] = [
       }
     ]
   }
+];
+
+export const mockExams: Exam[] = [
+  {
+    id: "1",
+    title: "React & TypeScript Midterm",
+    subject: "Front-end Development",
+    description: "Midterm exam covering React hooks, TypeScript types, and component patterns",
+    date: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split("T")[0],
+    time: "09:00",
+    location: "Room 101, Building A",
+    duration: 120,
+    notes: "Bring laptop with development environment setup. No online resources allowed.",
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+  {
+    id: "2",
+    title: "Database Design Final Exam",
+    subject: "Database Systems",
+    description: "Final exam on SQL, normalization, query optimization",
+    date: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toISOString().split("T")[0],
+    time: "14:00",
+    location: "Online - Zoom Link: TBD",
+    duration: 150,
+    notes: "Closed book. Bring paper and pen. No calculators.",
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+  {
+    id: "3",
+    title: "Node.js & Express Quiz",
+    subject: "Back-end Development",
+    description: "Quiz on REST API design and Express middleware",
+    date: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000).toISOString().split("T")[0],
+    time: "10:30",
+    location: "Lab Room 202",
+    duration: 60,
+    notes: "Practical exam. Code submission required.",
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+  {
+    id: "4",
+    title: "System Design Interview",
+    subject: "System Architecture",
+    description: "Interview on system design principles and architectural patterns",
+    date: new Date(Date.now() + 21 * 24 * 60 * 60 * 1000).toISOString().split("T")[0],
+    time: "15:00",
+    location: "Conference Room 5",
+    duration: 90,
+    notes: "1-on-1 interview with senior engineer. Whiteboard discussion.",
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+  {
+    id: "5",
+    title: "Japanese Language N4 Test",
+    subject: "Japanese Language",
+    description: "Official JLPT N4 certification exam",
+    date: new Date(Date.now() + 28 * 24 * 60 * 60 * 1000).toISOString().split("T")[0],
+    time: "13:30",
+    location: "Language Center, Downtown Campus",
+    duration: 170,
+    notes: "Bring ID card. Arrive 30 minutes early. No phones allowed.",
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
 ];

@@ -33,7 +33,7 @@ export default function QuizList() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navigation />
+      <Navigation activeTab="quiz" />
       <div className="container mx-auto px-6 py-8 max-w-7xl">
         <div className="space-y-8 animate-fade-in">
           {/* Header */}

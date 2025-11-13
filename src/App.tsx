@@ -4,6 +4,9 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
+import KnowledgeBankPage from "./pages/KnowledgeBankPage";
+import GoalsPage from "./pages/GoalsPage";
+import ExamReminderPage from "./pages/ExamReminderPage";
 import ResourceDetail from "./pages/ResourceDetail";
 import QuizList from "./pages/QuizList";
 import QuizDetail from "./pages/QuizDetail";
@@ -20,6 +23,9 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/knowledge" element={<KnowledgeBankPage />} />
+          <Route path="/goals" element={<GoalsPage />} />
+          <Route path="/exam-reminder" element={<ExamReminderPage />} />
           <Route path="/resource/:id" element={<ResourceDetail />} />
           <Route path="/quiz" element={<QuizList />} />
           <Route path="/quiz/:id" element={<QuizDetail />} />

@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { mockResources, mockUniversities } from "@/data/mockData";
+import { mockResources, mockUniversities, filterResourcesByTags } from "@/data/mockData";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -50,7 +50,7 @@ export default function ResourceDetail() {
   if (!resource) {
     return (
       <div className="min-h-screen bg-background">
-        <Navigation />
+        <Navigation activeTab="knowledge" />
         <div className="flex items-center justify-center min-h-[calc(100vh-4rem)]">
           <div className="text-center animate-fade-in">
             <h1 className="text-2xl font-light text-foreground mb-4">Resource not found</h1>
@@ -66,7 +66,7 @@ export default function ResourceDetail() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navigation />
+      <Navigation activeTab="knowledge" />
       <div className="max-w-4xl mx-auto px-4 py-8 space-y-6 animate-fade-in">
         {/* Header */}
         <div className="flex items-center gap-4">
@@ -113,13 +113,22 @@ export default function ResourceDetail() {
         {/* Tags */}
         <div className="flex flex-wrap gap-2 animate-fade-in" style={{ animationDelay: '200ms' }}>
           {resource.tags.map((tag, idx) => (
-            <Badge
+            <button
               key={idx}
-              variant="outline"
-              className="border-border text-muted-foreground font-light"
+              onClick={() => {
+                // navigate to knowledge bank filtered by this tag
+                const raw = tag.replace(/^#/, "");
+                window.location.href = `/knowledge?tag=${encodeURIComponent(raw)}`;
+              }}
+              className="cursor-pointer"
             >
-              {tag}
-            </Badge>
+              <Badge
+                variant="outline"
+                className="border-border text-muted-foreground font-light"
+              >
+                {tag}
+              </Badge>
+            </button>
           ))}
         </div>
 
@@ -414,6 +423,40 @@ export default function ResourceDetail() {
             </div>
           </div>
         )}
+
+        {/* Related by tags (other resources sharing tags) */}
+        {(() => {
+          const related = filterResourcesByTags(mockResources, resource.tags || [])
+            .filter((r) => r.id !== resource.id)
+            .slice(0, 6);
+
+          if (!related || related.length === 0) return null;
+
+          return (
+            <div className="space-y-3 animate-fade-in" style={{ animationDelay: '950ms' }}>
+              <h2 className="text-xl font-light text-foreground">Bạn có thể thích</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                {related.map((r) => (
+                  <Card
+                    key={r.id}
+                    className="p-3 border-border bg-card hover:shadow-lg transition-all duration-300 cursor-pointer hover-scale group"
+                    onClick={() => window.location.assign(`/resource/${r.id}`)}
+                  >
+                    <div>
+                      <h3 className="font-light text-sm group-hover:text-primary">{r.title}</h3>
+                      <p className="text-xs text-muted-foreground font-light line-clamp-2">{r.description}</p>
+                      <div className="flex gap-2 mt-2">
+                        {r.tags.slice(0,2).map((t, i) => (
+                          <Badge key={i} variant="outline" className="text-xs font-light border-border text-muted-foreground">{t}</Badge>
+                        ))}
+                      </div>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          );
+        })()}
       </div>
     </div>
   );
