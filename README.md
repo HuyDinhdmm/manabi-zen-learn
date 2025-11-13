@@ -8,8 +8,8 @@ Requirements: Node.js (or your runtime of choice) and npm.
 
 ```sh
 # clone
-git clone <YOUR_GIT_URL>
-cd <YOUR_PROJECT_NAME>
+git clone https://github.com/HuyDinhdmm/manabi-zen-learn.git
+cd manabi-zen-learn
 
 # install
 npm install
